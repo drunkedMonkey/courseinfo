@@ -1,29 +1,51 @@
-import Course from './components/Course'
+import Course from "./components/Course";
+import ReactDOM from "react-dom/client";
 
-const App = ()=>{
-  const course = {
-    name: 'Half Stack application development',
-    parts:[
-      {
-        name: 'Fundamentals of React',
-        exercises: 10
-      },
-      {
-        name: 'Using props to pass data',
-        exercises: 7
-      },
-      {
-        name: 'State of a component',
-        exercises: 14
-      }
-    ]
-  }
+const App = () => {
+  const courses = [
+    {
+      name: "Half Stack application development",
+      id: 1,
+      parts: [
+        {
+          name: "Fundamentals of React",
+          exercises: 10,
+        },
+        {
+          name: "Using props to pass data",
+          exercises: 7,
+        },
+        {
+          name: "State of a component",
+          exercises: 14,
+        },
+      ],
+    },
+    {
+      name: "Node.js",
+      id: 2,
+      parts: [
+        {
+          name: "Routing",
+          exercises: 3,
+          id: 1,
+        },
+        {
+          name: "Midelwares",
+          exercises: 7,
+          id: 2,
+        },
+      ],
+    },
+  ];
 
   return (
     <div>
-      <Course course={course} />
+      {courses.map((course) => (
+        <Course key={course.id} course={course} />
+      ))}
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;
